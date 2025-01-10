@@ -7,14 +7,9 @@
     --semi-color: rgb(136, 136, 136);
 }
 
-@font-face {
-    font-family: 'Tektur', sans-serif;
-}
-
 /* =================== L E T R A ================ */
 body {
-    /* font-family: 'Roboto Mono', monospace !important; */
-    font-family: 'MiFuente', Monospace !important;
+    font-family: ''Tektur'', Roboto Mono !important;
     font-size: 18px;
     height: 100%;
     height: 100%;
