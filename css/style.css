@@ -1,0 +1,569 @@
+/* #################################################################################################################### */
+/* ######################### P E R S O N A L I Z A C I O N     C O M P O N E N T E S ################################## */
+/* #################################################################################################################### */
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #0f0e17;
+    --semi-color: rgb(136, 136, 136);
+}
+
+@font-face {
+    font-family: 'MiFuente';
+    src: url('/assets/fonts/Tektur.ttf') format('truetype');
+}
+
+/* =================== L E T R A ================ */
+body {
+    /* font-family: 'Roboto Mono', monospace !important; */
+    font-family: 'MiFuente', Monospace !important;
+    font-size: 18px;
+    height: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+/* ================ B O T O N E S =============== */
+.btn-custom {
+    height: 45px;
+    width: 100px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;     
+    text-align: center; 
+    font-weight: bold;
+    font-size: 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem; 
+    user-select: none;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    
+}
+
+.btn-custom:active {
+    background-color: var(--semi-color); 
+}
+
+/* ================= I N P U T S ================ */
+body .form-select:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 5px 2px var(--primary-color) !important;
+    outline: none;
+}
+
+.form-group .form-control {
+    border-radius: 0.5rem;
+    margin-top: 0px;
+    color: var(--primary-color);
+}
+
+body .form-control:focus {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px 2px var(--primary-color);
+    outline: none;
+}
+
+.form-group .form-label {
+    margin-bottom: 0px;
+}
+
+/* ================= I C O N O S ================ */
+.bi.bi-x {
+    font-size: 3rem;
+    color: var(--primary-color);  
+}
+
+/* ===== S C R O L L   N A V E G A D O R ========= */
+/* ::-webkit-scrollbar-thumb {
+    background-color: #ff5d5d;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+} */
+
+/* #################################################################################################################### */
+/* ############################################# C O N T A I N E R S ################################################## */
+/* #################################################################################################################### */
+.container-main {
+    display: none; 
+    visibility: hidden; 
+    opacity: 0; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0; 
+    height: 100vh;
+    background-color: var(--secondary-color);
+}
+
+/* ################################################ L O G I N ########################################################## */
+/* ############################################################################################################## */
+.container-loggin {
+    display: flex;                    
+    flex-direction: column;           
+    justify-content: center;          
+    align-items: center;                                  
+    height: 100vh;
+    padding-bottom: 100px;                     
+    gap: 20px;
+    position: relative;
+    background-color: var(--secondary-color);
+}
+
+.container-loggin h1 {
+    color: var(--primary-color);
+}
+
+.container-loggin img {
+    filter: brightness(0) invert(1); /* Cambiar imagen a blanco */
+    animation: rotar 6s linear infinite; /* Animación continua de rotación */
+}
+
+@keyframes rotar {
+    0% {
+        transform: rotate(0deg); /* Comienza en 0 grados */
+    }
+    100% {
+        transform: rotate(360deg); /* Termina en 360 grados (una vuelta completa) */
+    }
+}
+
+.container-loggin .form-group {
+    display: flex;          
+    flex-direction: row;    
+    align-items: center;    
+    gap: 10px;       
+}
+
+.container-loggin .form-control:focus {
+    color: black;
+}
+
+/* ################################################## N A V ############################################################ */
+/* ############################################################################################################## */
+.container-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    height: 70px;
+}
+
+#inputBuscar {
+    font-size: 25px;
+    font-weight: bold;
+    border: none;
+    outline: none;            
+    box-shadow: none;        
+    width: 50%;
+    height: 45px;         
+    padding: 8px;              
+    box-sizing: border-box;
+    background-color: transparent;   
+}
+
+#inputBuscar {
+    color: var(--primary-color);
+}
+
+#inputBuscar::placeholder {
+    color: var(--primary-color);
+}
+
+#btnMenu {
+    margin-right: 10px;
+}
+
+/* ############################################## T A B L A  ########################################################## */
+/* ############################################################################################################## */
+#tablaGastos {
+    height: calc(100vh - 70px);
+    box-sizing: border-box;
+    border: none;
+    background-color: var(--primary-color);
+}
+
+#tablaGastos .tabulator-col-resize-handle {  /* EVITA PODER MOVER COLUMNAS TABLAS*/
+    display: none;
+}
+
+#tablaGastos .tabulator-row  .tabulator-cell {  /* EVITA LINEA VERTICAL COLUMNAS*/
+    border-right: none;
+    background-color: transparent;
+}
+
+#tablaGastos .tabulator-header {
+    background-color: var(--secondary-color);
+    /* border: none;  */
+    color: var(--primary-color);
+}
+
+#tablaGastos .tabulator-header .tabulator-col {
+    border: none;
+    background-color: transparent;
+    padding: 0 8px;
+}
+
+#tablaGastos .tabulator-cell {  /* ---- Aplica a las celdas de forma individual */
+    padding: 0 10px;  
+}
+
+#tablaGastos .tabulator-row {
+    font-size: 18px;
+    box-sizing: border-box;
+    padding: 10px 0;
+    color: var(--secondary-color);
+
+    /* color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border: 0.5px solid rgb(231, 231, 231); */
+}
+
+.estiloFecha {
+    font-size: 14px;
+    color: rgb(126, 194, 129);
+}
+
+.estiloDescripcion {
+    font-size: 14px;
+    color: var(--semi-color);
+}
+
+.estiloCantidad {
+    text-align: right;
+}
+
+#tablaGastos .tabulator-row:hover {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+/* ########################################### C A N V A S 1 ########################################################## */
+/* ############################################################################################################## */
+#offcanvas {
+    background-color: var(--secondary-color);
+}
+
+#offcanvas .offcanvas-header {
+    height: 70px;
+}
+
+.offcanvas-title {
+    font-size: 25px;
+    padding: 2px 10px;
+    border-radius: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.container-canvas .offcanvas-body {
+    display: flex;
+    flex-direction: column;  
+    width: 80%;             
+    height: 100vh;          
+    gap: 10px;              
+    margin: 0 auto;
+    background-color: transparent;       
+}
+
+.container-canvas .form-group {
+    flex: 1;
+}
+
+.container-canvas .offcanvas-body .form-group label {
+    font-size: 20px;
+    color: var(--semi-color);
+}
+
+.container-canvas .offcanvas-body .form-group input {
+    font-size: 25px;
+    font-weight: bold;
+    border: none;              
+    border-bottom: 1px dashed var(--semi-color);
+    border-radius: 0;           
+    width: 100%;               
+    box-sizing: border-box;
+    background-color: transparent;    
+}
+
+.container-canvas .form-group-button {
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+    height: 100%;
+    width: 100%;  
+    gap: 10px;           
+}
+
+#btnEliminar {
+    color: red;
+}
+
+/* ########################################### C A N V A S 2 ########################################################## */
+/* ############################################################################################################## */
+#offcanvas2 {
+    user-select: none;
+    background-color: var(--secondary-color);
+}
+
+#offcanvas2 .offcanvas-header {
+    height: 70px;
+}
+
+.offcanvas-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-group {
+    display: flex;           
+    justify-content: center;
+    align-items: center;     
+    text-align: center; 
+    height: 45px;
+    width: 200px;
+    color: var(--primary-color);
+}
+
+/* Boton cuando esta pulsado */
+.btn-check:checked + .btn {
+    font-size: 25px;
+    border: none;
+    color: var(--secondary-color);
+    text-decoration: underline; 
+}
+
+/* Boton cuando no esta pulsado */
+.btn-check:not(:checked) + .btn {
+    font-size: 15px;
+    border: none;
+    color: var(--semi-color);  
+}
+
+/* #############################################  R E S U M E N  ####################################################### */
+/* ############################################################################################################## */
+.container-global {
+    display: grid;
+    grid-template-rows: auto auto;
+    margin-bottom: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.container-global .seccion-superior {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    width: 100%;
+    padding: 0 20px;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    box-sizing: border-box; 
+}
+
+.container-global .seccion-superior .value {
+    color:red;
+}
+
+.container-global .seccion-inferior {
+    display: grid; 
+    grid-template-columns: 30% 70%;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.container-global .value {
+    font-weight: bold;
+}
+
+/* --------------------------------  GRUPO FACTURAS  ------------------------------------ */
+.container-global .seccion-inferior-izquierda {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    padding: 5px 0 ;
+    box-sizing: border-box;
+    border-right: 1px solid var(--primary-color);
+    background-color:  var(--secondary-color);
+    border-bottom-left-radius: 3px;
+}
+
+.container-global .seccion-inferior-izquierda .form-group .material-symbols-outlined {
+    color: var(--semi-color);
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+.container-global .seccion-inferior-izquierda .form-group {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    box-sizing: border-box;
+    margin: 5px;
+    color: var(--primary-color);
+}
+
+.container-global .seccion-inferior-izquierda .form-group span {
+    line-height: 1;
+}
+
+
+/* ----------------------------------  GRUPO CALCULOS  -------------------------------- */
+.container-global .seccion-inferior-derecha {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: var(--primary-color);
+}
+
+.container-global .seccion-inferior-derecha .form-group {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box; 
+}
+
+.container-global .seccion-inferior-derecha .label-titulo {
+    text-align: center;
+    text-decoration: underline;
+    color: var(--semi-color);
+}
+
+/* ##############################################  N O T A S  ########################################################## */
+/* ############################################################################################################## */
+#resultadosNotas {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+#resultadosNotas .container-notas {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* =================== E N C A B E Z A D O ================ */
+
+#resultadosNotas .container-notas .form-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#resultadosNotas .container-notas .form-group-header input {
+    height: 35px;
+    background-color: transparent;
+    margin-right: 10px;
+}
+
+#resultadosNotas .container-notas .form-group-header button {
+    height: 35px;
+}
+
+/* =================== C O N T E N I D O ================ */
+
+#resultadosNotas .container-notas .form-group-contenido {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+
+#resultadosNotas .container-notas .form-group-contenido .form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    padding: 0 15px;
+}
+
+#resultadosNotas .container-notas .form-group-contenido .form-group .value {
+    color: var(--primary-color);
+}
+
+#resultadosNotas .container-notas .form-group-contenido .form-group .btnBorrarNota {
+    color: rgb(255, 0, 0);
+    font-size: 1.2rem;;
+}
+
+#resultadosNotas hr {
+    color: var(--primary-color);
+}
+
+
+/* ############################################## F L O T A N T E ###################################################### */
+/* ############################################################################################################## */
+.container-flotante {
+    position: fixed; 
+    bottom: 20px; 
+    right: 10px; 
+    z-index: 2; 
+}
+
+#btnNuevo {
+    width: 45px;
+    font-size: 1.9rem;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+/* ##############################################  A L E R T A  ######################################################## */
+/* ############################################################################################################## */
+.modal {
+    margin: 0;
+    padding: 0;
+    backdrop-filter: blur(5px);
+}
+.modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; 
+}
+
+.modal-content {
+    width: auto !important;  
+    max-width: none !important;
+}
+
+.modal-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: auto;  
+    max-width: 100%;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    background-color: var(--secondary-color);  
+}
+
+#btnAlertaSi,
+#btnAlertaNo {
+    height: 40px;
+}
+
+#btnAlertaSi {
+    color: red;
+}
