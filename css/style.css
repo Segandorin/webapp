@@ -9,7 +9,7 @@
 
 /* =================== L E T R A ================ */
 body {
-    font-family: 'Tektur', monospace;
+    font-family: 'Tektur', monospace!important;
     font-size: 18px;
     height: 100%;
     height: 100%;
