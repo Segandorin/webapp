@@ -8,8 +8,7 @@
 }
 
 @font-face {
-    font-family: 'MiFuente';
-     src: url('../assets/fonts/Tektur.ttf') format('truetype');
+    font-family: 'Tektur', sans-serif;
 }
 
 /* =================== L E T R A ================ */
