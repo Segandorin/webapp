@@ -29,8 +29,7 @@ body {
     user-select: none;
     color: var(--primary-color);
     background-color: var(--secondary-color);
-    transition: background-color 0.2s ease, color 0.2s ease;
-    
+    transition: background-color 0.2s ease, color 0.2s ease;   
 }
 
 .btn-custom:active {
@@ -47,7 +46,6 @@ body .form-select:focus {
 .form-group .form-control {
     border-radius: 0.5rem;
     margin-top: 0px;
-    
     color: var(--primary-color);
 }
 
@@ -553,9 +551,6 @@ body .form-control:focus {
     height: 40px;
 }
 
-#btnAlertaSi {
-    color: red;
-}
 #btnAlertaSi {
     color: red;
 }
