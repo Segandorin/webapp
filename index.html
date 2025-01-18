@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz@0,14..32;1,14..32&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
     <!----------------------------------------------------------------------------------------- Validación ---------------------------------------------------------------------------------->
@@ -57,12 +59,12 @@
                     </div>
                     <div class="form-group">
                         <label for="inputNombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="inputNombre" list="listaNombres">
-                        <datalist id="listaNombres">
-                            <option value="Víctor">
-                            <option value="Sandra">
-                            <option value="Ambos">
-                        </datalist>
+                        <select class="form-control" id="inputNombre">
+                            <option value="Víctor">Víctor</option>
+                            <option value="Sandra">Sandra</option>
+                            <option value="Ambos">Ambos</option>
+                        </select>
+                        
                     </div>
                     <div class="form-group">
                         <label for="inputFecha" class="form-label">Fecha</label>
@@ -70,18 +72,18 @@
                     </div>
                     <div class="form-group">
                         <label for="inputTipo" class="form-label">Tipo</label>
-                        <input type="text" class="form-control" id="inputTipo" list="listaTipos">
-                        <datalist id="listaTipos">
-                            <option value="Alquiler">
-                            <option value="Luz">
-                            <option value="Agua">
-                            <option value="Internet">
-                            <option value="Gas">
-                            <option value="Comida">
-                            <option value="Capricho">
-                            <option value="Gatos">
-                            <option value="Hogar">
-                        </datalist>
+                        <select class="form-control" id="inputTipo">
+                            <option value="Alquiler">Alquiler</option>
+                            <option value="Luz">Luz</option>
+                            <option value="Agua">Agua</option>
+                            <option value="Internet">Internet</option>
+                            <option value="Gas">Gas</option>
+                            <option value="Comida">Comida</option>
+                            <option value="Capricho">Capricho</option>
+                            <option value="Gatos">Gatos</option>
+                            <option value="Hogar">Hogar</option>
+                        </select>
+                        
                     </div>
                     <div class="form-group">
                         <label for="inputDescripcion" class="form-label">Descripción</label>
@@ -100,7 +102,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputCantidad" class="form-label">Cantidad</label>
-                        <input type="text" class="form-control" id="inputCantidad">
+                        <input type="text" class="form-control" id="inputCantidad" inputmode="numeric">
                     </div>
                     <div class="form-group">
                         <div class="form-group-button">
