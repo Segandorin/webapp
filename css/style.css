@@ -1,13 +1,9 @@
-/* #################################################################################################################### */
-/* ######################### P E R S O N A L I Z A C I O N     C O M P O N E N T E S ################################## */
-/* #################################################################################################################### */
 :root {
     --primary-color: #ffffff;
     --secondary-color: #0f0e17;
     --semi-color: rgb(136, 136, 136);
 }
 
-/* =================== L E T R A ================ */
 body {
     font-family: 'Tektur', monospace!important;
     font-size: 18px;
@@ -51,6 +47,7 @@ body .form-select:focus {
 .form-group .form-control {
     border-radius: 0.5rem;
     margin-top: 0px;
+    
     color: var(--primary-color);
 }
 
@@ -207,7 +204,7 @@ body .form-control:focus {
     padding: 0 8px;
 }
 
-#tablaGastos .tabulator-cell {  /* ---- Aplica a las celdas de forma individual */
+#tablaGastos .tabulator-cell {  /* CELDAS INDIVIDUAL */
     padding: 0 10px;  
 }
 
@@ -261,16 +258,12 @@ body .form-control:focus {
 
 .container-canvas .offcanvas-body {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
+    justify-content: space-evenly;  
     width: 80%;             
-    height: 100vh;          
-    gap: 10px;              
+    height: 100vh;                        
     margin: 0 auto;
     background-color: transparent;       
-}
-
-.container-canvas .form-group {
-    flex: 1;
 }
 
 .container-canvas .offcanvas-body .form-group label {
@@ -278,6 +271,7 @@ body .form-control:focus {
     color: var(--semi-color);
 }
 
+.container-canvas .offcanvas-body .form-group select,
 .container-canvas .offcanvas-body .form-group input {
     font-size: 25px;
     font-weight: bold;
@@ -535,6 +529,7 @@ body .form-control:focus {
 }
 
 .modal-content {
+    margin-top: 100px;
     width: auto !important;  
     max-width: none !important;
 }
@@ -558,6 +553,9 @@ body .form-control:focus {
     height: 40px;
 }
 
+#btnAlertaSi {
+    color: red;
+}
 #btnAlertaSi {
     color: red;
 }
