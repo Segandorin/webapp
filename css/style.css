@@ -269,7 +269,9 @@ body {
     border-bottom: 1px dashed red !important;
 }
 
-
+/* .container-canvas .offcanvas-body .form-group:has(input:focus) label {
+    color: red !important;
+} */
 
 .container-canvas .form-group-button {
     display: flex;
