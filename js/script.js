@@ -33,11 +33,13 @@ const inputTipo = document.getElementById('inputTipo');
 const inputDescripcion = document.getElementById('inputDescripcion');
 const inputCantidad = document.getElementById('inputCantidad');
 
+
 let gastosData = [];
 let gastosNotasData = [];
 
+
 //----------------------------------------------------------------------------------------------------------->>>
-//-------- Dom ---------------------------------------------------------------------------------------------->>>
+//-------- DOM LISTENERS ------------------------------------------------------------------------------------>>>
 //----------------------------------------------------------------------------------------------------------->>>
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -74,8 +76,19 @@ document.addEventListener("DOMContentLoaded", function() {
         mostrarAviso('¿Estás seguro de eliminar?', eliminarGasto);
     });
     
-    document.getElementById('resultadosNotas').addEventListener('click', function(event) {
+    document.querySelector('.container-canvas').addEventListener('click', function(event) { // ---- Desliza scroll al pulsar dentro de CANVAS
+        if (event.target.tagName.toLowerCase() === 'input') return;
+        var clickY = event.clientY;
+        var canvasHeight = this.clientHeight;
+        var scrollToPosition = clickY - (canvasHeight / 2);
     
+        this.scrollTo({
+            top: scrollToPosition,
+            behavior: 'smooth'
+        });
+    });
+    
+    document.getElementById('resultadosNotas').addEventListener('click', function(event) {
         if (event.target && event.target.matches('.btnAñadirNota')) {
             mostrarAviso('¿Estás seguro de añadir?', añadirNota);
         }
@@ -89,9 +102,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }); 
 });
 
-//----------------------------------------------------------------------------------------------------------->>>
-//-------- Listeners ---------------------------------------------------------------------------------------->>>
-//----------------------------------------------------------------------------------------------------------->>>
+//---------------------------------------------------------------------------------------------------------------------->>>
+//-------- Funciones --------------------------------------------------------------------------------------------------->>>
+//---------------------------------------------------------------------------------------------------------------------->>>
 async function validarYAcceder() {
     const email = inputEmail.value;
     const password = inputPassword.value;
@@ -121,11 +134,6 @@ async function validarYAcceder() {
     }
 }
 
-
-
-//---------------------------------------------------------------------------------------------------------------------->>>
-//-------- Funciones --------------------------------------------------------------------------------------------------->>>
-//---------------------------------------------------------------------------------------------------------------------->>>
 const cargarDatos = async () => {
     try {
         // Cargar datos de la colección "GastosDataFirebase"
@@ -488,8 +496,7 @@ function cargarTablaGastos() {
         tablaGastos.tabulator.destroy();
     }
 
-    // Este bloque importa los datos de LET GASTOSDATA y los ordena de forma descendente
-    let gastosDataOrdenados = Object.entries(gastosData)  
+    let gastosDataOrdenados = Object.entries(gastosData) // ---- / Importa los datos de LET GASTOSDATA y los ordena de forma descendente 
     .sort((a, b) => b[0].localeCompare(a[0]))  
     .map(([id, data]) => ({ ...data, id }));
 
