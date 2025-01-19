@@ -89,16 +89,16 @@ body {
 }
 
 .container-loggin img {
-    filter: brightness(0) invert(1); /* Cambiar imagen a blanco */
-    animation: rotar 6s linear infinite; /* Animación continua de rotación */
+    filter: brightness(0) invert(1);
+    animation: rotar 6s linear infinite; 
 }
 
 @keyframes rotar {
     0% {
-        transform: rotate(0deg); /* Comienza en 0 grados */
+        transform: rotate(0deg);
     }
     100% {
-        transform: rotate(360deg); /* Termina en 360 grados (una vuelta completa) */
+        transform: rotate(360deg);
     }
 }
 
@@ -157,11 +157,11 @@ body {
     background-color: var(--primary-color);
 }
 
-#tablaGastos .tabulator-col-resize-handle {  /* EVITA PODER MOVER COLUMNAS TABLAS*/
+#tablaGastos .tabulator-col-resize-handle {  /* ---- EVITA PODER MOVER COLUMNAS TABLAS*/
     display: none;
 }
 
-#tablaGastos .tabulator-row  .tabulator-cell {  /* EVITA LINEA VERTICAL COLUMNAS*/
+#tablaGastos .tabulator-row  .tabulator-cell {  /* ---- EVITA LINEA VERTICAL COLUMNAS*/
     border-right: none;
     background-color: transparent;
 }
@@ -178,7 +178,7 @@ body {
     padding: 0 8px;
 }
 
-#tablaGastos .tabulator-cell {  /* CELDAS INDIVIDUAL */
+#tablaGastos .tabulator-cell {
     padding: 0 10px;  
 }
 
@@ -240,13 +240,27 @@ body {
     background-color: transparent;       
 }
 
+.container-canvas .offcanvas-body .form-group label,
+.container-canvas .offcanvas-body .form-group input {
+    margin-bottom: 0; 
+    padding-bottom: 0; 
+}
+
 .container-canvas .offcanvas-body .form-group label {
     font-size: 20px;
     color: var(--semi-color);
 }
 
 .container-canvas .offcanvas-body .form-group .form-control {
+    font-size: 25px;
+    font-weight: bold;
+    border: none;              
+    border-bottom: 1px dashed var(--semi-color);
+    border-radius: 0;           
+    width: 100%;               
+    box-sizing: border-box;
     color: var(--primary-color);
+    background-color: transparent;
 }
 
 .container-canvas .offcanvas-body .form-control:focus {
@@ -257,17 +271,6 @@ body {
 
 .container-canvas .offcanvas-body .form-group:has(input:focus) label {
     color: red !important;
-}
-
-.container-canvas .offcanvas-body .form-group input {
-    font-size: 25px;
-    font-weight: bold;
-    border: none;              
-    border-bottom: 1px dashed var(--semi-color);
-    border-radius: 0;           
-    width: 100%;               
-    box-sizing: border-box;
-    background-color: transparent;    
 }
 
 .container-canvas .form-group-button {
@@ -309,16 +312,14 @@ body {
     color: var(--primary-color);
 }
 
-/* Boton cuando esta pulsado */
-.btn-check:checked + .btn {
+.btn-check:checked + .btn { /* ---- Botón cuando está pulsado */
     font-size: 25px;
     border: none;
     color: var(--secondary-color);
     text-decoration: underline; 
 }
 
-/* Boton cuando no esta pulsado */
-.btn-check:not(:checked) + .btn {
+.btn-check:not(:checked) + .btn { /* ---- Botón cuando no está pulsado */
     font-size: 15px;
     border: none;
     color: var(--semi-color);  
