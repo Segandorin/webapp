@@ -36,7 +36,6 @@ const inputCantidad = document.getElementById('inputCantidad');
 let gastosData = [];
 let gastosNotasData = [];
 
-
 //----------------------------------------------------------------------------------------------------------->>>
 //-------- Dom ---------------------------------------------------------------------------------------------->>>
 //----------------------------------------------------------------------------------------------------------->>>
@@ -44,8 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     btnAutentificar.addEventListener("click", function() {
         validarYAcceder();
-    })
-
+    }) 
 
     btnMenu.addEventListener("click", function() {
         limpiarBodyCanvas ();
