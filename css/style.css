@@ -51,7 +51,7 @@ body .form-select:focus {
 
 body .form-control:focus {
     color: var(--primary-color);
-    border-color: red;
+    border-color: var(--primary-color);
     box-shadow: 0 0 5px 2px var(--primary-color);
     outline: none;
 }
