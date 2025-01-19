@@ -77,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     document.querySelector('.container-canvas').addEventListener('click', function(event) { // ---- Desliza scroll al pulsar dentro de CANVAS
-        if (event.target.tagName.toLowerCase() === 'input') return;
         var clickY = event.clientY;
         var canvasHeight = this.clientHeight;
         var scrollToPosition = clickY - (canvasHeight / 2);
