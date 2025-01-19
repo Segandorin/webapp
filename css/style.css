@@ -36,30 +36,6 @@ body {
     background-color: var(--semi-color); 
 }
 
-/* ================= I N P U T S ================ */
-body .form-select:focus {
-    border-color: var(--primary-color) !important;
-    box-shadow: 0 0 5px 2px var(--primary-color) !important;
-    outline: none;
-}
-
-.form-group .form-control {
-    border-radius: 0.5rem;
-    margin-top: 0px;
-    color: var(--primary-color);
-}
-
-body .form-control:focus {
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-    box-shadow: 0 0 5px 2px var(--primary-color);
-    outline: none;
-}
-
-.form-group .form-label {
-    margin-bottom: 0px;
-}
-
 /* ================= I C O N O S ================ */
 .bi.bi-x {
     font-size: 3rem;
@@ -269,7 +245,20 @@ body .form-control:focus {
     color: var(--semi-color);
 }
 
-.container-canvas .offcanvas-body .form-group select,
+.container-canvas .offcanvas-body .form-group .form-control {
+    color: var(--primary-color);
+}
+
+.container-canvas .offcanvas-body .form-control:focus {
+    color: var(--primary-color);
+    box-shadow: none;
+    border-bottom: 1px dashed red !important;
+}
+
+.container-canvas .offcanvas-body .form-group:has(input:focus) label {
+    color: red !important;
+}
+
 .container-canvas .offcanvas-body .form-group input {
     font-size: 25px;
     font-weight: bold;
