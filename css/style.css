@@ -254,7 +254,8 @@ body {
 .container-canvas .offcanvas-body .form-group .form-control {
     font-size: 25px;
     font-weight: bold;
-    border: none;              
+    border: none;
+    border-top: 1px dashed var(--semi-color);
     border-bottom: 1px dashed var(--semi-color);
     border-radius: 0;           
     width: 100%;               
@@ -266,6 +267,7 @@ body {
 .container-canvas .offcanvas-body .form-control:focus {
     color: var(--primary-color);
     box-shadow: none;
+    border-top: 1px dashed red !important;
     border-bottom: 1px dashed red !important;
 }
 
