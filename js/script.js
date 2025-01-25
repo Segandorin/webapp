@@ -15,6 +15,7 @@ const inputBuscar = document.getElementById('inputBuscar');
 const tablaGastos = document.getElementById('tablaGastos');
 const offcanvasElement = document.getElementById('offcanvas');
 const offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+const containerCanvas = document.querySelector('.container-canvas');
 
 const btnAutentificar = document.getElementById("btnAutentificar");
 const btnNuevo = document.getElementById('btnNuevo');
@@ -76,29 +77,19 @@ document.addEventListener("DOMContentLoaded", function() {
         mostrarAviso('¿Estás seguro de eliminar?', eliminarGasto);
     });
     
-    document.querySelector('.container-canvas').addEventListener('click', function(event) { // ---- Desliza scroll al pulsar dentro de CANVAS
-        var clickY = event.clientY;
-        var canvasHeight = this.clientHeight;
-        var scrollToPosition = clickY - (canvasHeight / 2);
-    
-        this.scrollTo({
-            top: scrollToPosition,
-            behavior: 'smooth'
-        });
+    containerCanvas.addEventListener('click', (event) => {  // ---- Inserta el data-valor de los botones del CANVAS
+        cargarValoresIconos(event);
+        cargarColoresIconos(); 
     });
-    
-    document.getElementById('resultadosNotas').addEventListener('click', function(event) {
-        if (event.target && event.target.matches('.btnAñadirNota')) {
-            mostrarAviso('¿Estás seguro de añadir?', añadirNota);
-        }
-    
-        if (event.target && event.target.matches('.btnBorrarNota')) {
-            var dataId = event.target.getAttribute('data-id');
-            mostrarAviso('¿Estás seguro de eliminar?', function() {
-                eliminarNota(dataId);
-            });
-        }
-    }); 
+
+    document.getElementById('offcanvas').addEventListener('shown.bs.offcanvas', function () { // ---- Inserta color al abrir CANVAS
+        cargarColoresIconos();
+    });
+
+    document.getElementById('offcanvas').addEventListener('shown.bs.offcanvas', function () { // ---- Inserta color al cerrar CANVAS
+        cargarColoresIconos();
+    });
+
 });
 
 //---------------------------------------------------------------------------------------------------------------------->>>
@@ -278,7 +269,6 @@ async function eliminarGasto() {
     }
 }
 
-
 function fechaActual() {
     const inputFecha = document.getElementById('inputFecha');
     
@@ -293,9 +283,9 @@ function fechaActual() {
 }
 
 function borrarValorInputs() {
-    const inputs = [inputId, inputNombre, inputFecha, inputTipo, inputDescripcion, inputCantidad];
-    inputs.forEach(input => input.value = '');
+    document.querySelectorAll('input').forEach(input => input.value = '');
 }
+
 
 function verificarGuardado() {
     const id = inputId.value;
@@ -487,6 +477,61 @@ function limpiarBodyCanvas () {
     contenedorNotas.innerHTML = '';
 }
 
+function cargarValoresIconos(event) {
+    if (event.target.tagName.toLowerCase() === 'i') { 
+        const valorIcono = event.target.dataset.valor;
+        const padre = event.target.closest('.slider-btn');
+
+        if (padre.classList.contains('iconNombre')) {
+            inputNombre.value = valorIcono;
+        } else if (padre.classList.contains('iconTipo')) {
+            inputTipo.value = valorIcono;
+        } else if (padre.classList.contains('iconDescripcion')) {
+            inputDescripcion.value = valorIcono;
+        }
+    }
+}
+
+function cargarColoresIconos() {
+    const valorNombre = document.getElementById('inputNombre').value;
+    const valorTipo = document.getElementById('inputTipo').value;
+    const valorDescripcion = document.getElementById('inputDescripcion').value;
+
+    function aplicarColorBotonIcono(claseContenedor, valorInput) {
+        const iconos = document.querySelectorAll(claseContenedor + ' i'); // Cambié 'span' por 'i'
+        let iconoColoreado = null;  // Variable para almacenar el icono coloreado
+
+        iconos.forEach(icono => {
+            if (icono.dataset.valor === valorInput) {
+                icono.classList.add('añadirColorBotonIcono');
+                iconoColoreado = icono;  // Guardar el icono que ha sido coloreado
+            } else {
+                icono.classList.remove('añadirColorBotonIcono');
+            }
+        });
+
+        if (iconoColoreado) {
+            iconoColoreado.scrollIntoView({
+                behavior: 'smooth', 
+                block: 'center',    
+                inline: 'center'    
+            });
+        } else {
+            const contenedor = document.querySelector(claseContenedor);
+            contenedor.scrollTo({
+                left: 0,
+                behavior: 'smooth' 
+            });
+        }
+    }
+
+    aplicarColorBotonIcono('.iconNombre', valorNombre);
+    aplicarColorBotonIcono('.iconTipo', valorTipo);
+    aplicarColorBotonIcono('.iconDescripcion', valorDescripcion);
+}
+
+
+
 //---------------------------------------------------------------------------------------------------------------------->>>
 //-------- Funciones dinámicas ----------------------------------------------------------------------------------------->>>
 //---------------------------------------------------------------------------------------------------------------------->>>
@@ -504,6 +549,7 @@ function cargarTablaGastos() {
         layout: "fitColumns",
         pagination: false,
         responsiveLayout: "hide",
+        headerVisible: false,
         placeholder: "No se encontraron resultados",
         columns: [
             {title: "ID", field: "id", visible: false},  
@@ -695,4 +741,3 @@ function cargarNotas() {
 
     contenedor.innerHTML += contenedorGeneral;
 }
-
