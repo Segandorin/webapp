@@ -1,6 +1,9 @@
 :root {
-    --primary-color: #ffffff;
-    --secondary-color: #0f0e17;
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgb(0, 0, 0);
+
+    --primary-semi-color: rgba(255, 255, 255, 0.2);
+    --primary-semisemi-color: rgba(255, 255, 255, 0.2);
     --semi-color: rgb(136, 136, 136);
 }
 
@@ -42,6 +45,10 @@ body {
     color: var(--primary-color);  
 }
 
+.bi-arrow-down {
+    color: var(--primary-color);
+}
+
 /* ===== S C R O L L   N A V E G A D O R ========= */
 /* ::-webkit-scrollbar-thumb {
     background-color: #ff5d5d;
@@ -49,7 +56,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    height: 4px;
 } */
 
 /* #################################################################################################################### */
@@ -68,6 +75,11 @@ body {
     z-index: 0; 
     height: 100vh;
     background-color: var(--secondary-color);
+
+    background-image: url('https://wallpaper.forfun.com/fetch/b5/b5917d31e636993a980dc3addd6730e8.jpeg'); /* URL de la imagen */
+    background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
 /* ################################################ L O G I N ########################################################## */
@@ -121,6 +133,7 @@ body {
     align-items: center;
     box-sizing: border-box;
     height: 70px;
+    background-color: transparent;
 }
 
 #inputBuscar {
@@ -146,19 +159,41 @@ body {
 
 #btnMenu {
     margin-right: 10px;
+
 }
 
 /* ############################################## T A B L A  ########################################################## */
 /* ############################################################################################################## */
 #tablaGastos {
+    z-index: 0;
     height: calc(100vh - 70px);
     box-sizing: border-box;
     border: none;
-    background-color: var(--primary-color);
+    /* background-color: transparent; */
+    background: rgba(0, 0, 0, 0.5); 
 }
 
 #tablaGastos .tabulator-col-resize-handle {  /* ---- EVITA PODER MOVER COLUMNAS TABLAS*/
     display: none;
+}
+
+#tablaGastos .tabulator-row,
+#tablaGastos .tabulator-table {
+    background: transparent;
+}
+
+#tablaGastos .tabulator-header {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+#tablaGastos .tabulator-header .tabulator-col {
+    border: none;
+    padding: 0 8px;
+    background-color: transparent;
+}
+#tablaGastos .tabulator-row {
+    border-bottom: 1px solid var(--semi-color);
 }
 
 #tablaGastos .tabulator-row  .tabulator-cell {  /* ---- EVITA LINEA VERTICAL COLUMNAS*/
@@ -166,36 +201,20 @@ body {
     background-color: transparent;
 }
 
-#tablaGastos .tabulator-header {
-    background-color: var(--secondary-color);
-    /* border: none;  */
-    color: var(--primary-color);
-}
-
-#tablaGastos .tabulator-header .tabulator-col {
-    border: none;
-    background-color: transparent;
-    padding: 0 8px;
-}
-
 #tablaGastos .tabulator-cell {
-    padding: 0 10px;  
+    padding: 0 10px; 
 }
 
 #tablaGastos .tabulator-row {
     font-size: 18px;
     box-sizing: border-box;
     padding: 10px 0;
-    color: var(--secondary-color);
-
-    /* color: var(--secondary-color);
-    background-color: var(--primary-color);
-    border: 0.5px solid rgb(231, 231, 231); */
+    color: var(--primary-color);
 }
 
 .estiloFecha {
     font-size: 14px;
-    color: rgb(126, 194, 129);
+    color: rgb(67, 179, 72);
 }
 
 .estiloDescripcion {
@@ -209,7 +228,7 @@ body {
 
 #tablaGastos .tabulator-row:hover {
     color: var(--primary-color);
-    background-color: var(--secondary-color);
+    background-color: rgba(0, 0, 0, 1);
 }
 
 /* ########################################### C A N V A S 1 ########################################################## */
@@ -234,10 +253,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;  
-    width: 80%;             
-    height: 100vh;                        
+    width: 80%;                               
     margin: 0 auto;
-    background-color: transparent;       
+    background-color: transparent;     
+}
+
+.input-group {
+    display: flex;          
+    align-items: center;
+    background-color: blue;
 }
 
 .container-canvas .offcanvas-body .form-group label,
@@ -248,10 +272,11 @@ body {
 
 .container-canvas .offcanvas-body .form-group label {
     font-size: 20px;
-    color: var(--semi-color);
+    color: var(--primary-semi-color);
 }
 
 .container-canvas .offcanvas-body .form-group .form-control {
+    flex: 1;
     font-size: 25px;
     font-weight: bold;
     width: 100%;
@@ -259,21 +284,14 @@ body {
     border: 1px dashed transparent;
     border-bottom: 1px dashed var(--semi-color);
     border-radius: 0;                       
-    box-sizing: border-box;
     color: var(--primary-color);
     background-color: transparent;
 }
 
 .container-canvas .offcanvas-body .form-control:focus {
-    color: var(--primary-color);
+    color: rgb(255, 209, 125);
     box-shadow: none;
-    border-top: 1px dashed red !important;
-    border-bottom: 1px dashed red !important;
 }
-
-/* .container-canvas .offcanvas-body .form-group:has(input:focus) label {
-    color: red !important;
-} */
 
 .container-canvas .form-group-button {
     display: flex;
@@ -282,6 +300,35 @@ body {
     height: 100%;
     width: 100%;  
     gap: 10px;           
+}
+
+.slider-btn {
+    display: flex;
+    overflow-x: auto;
+    gap: 5px;
+    padding: 4px 0;  
+}
+
+.slider-btn i {
+    display: flex;        
+    align-items: center;
+    justify-content: center;
+    width: 50px; 
+    height: 50px;
+    padding: 10px;
+    font-size: 2rem; 
+    border: 1px solid var(--primary-semi-color);
+    border-radius: 0.5rem;
+    color: var(--primary-semi-color);
+    box-sizing: border-box;
+}
+  
+.slider-btn .añadirColorBotonIcono {
+    color: rgb(67, 179, 72);
+}
+
+.slider-btn::-webkit-scrollbar {
+    display: none; 
 }
 
 /* ########################################### C A N V A S 2 ########################################################## */
@@ -445,8 +492,10 @@ body {
 
 #resultadosNotas .container-notas .form-group-header input {
     height: 35px;
-    background-color: transparent;
     margin-right: 10px;
+    color: var(--primary-color);
+    background-color: transparent;
+
 }
 
 #resultadosNotas .container-notas .form-group-header button {
@@ -541,3 +590,24 @@ body {
 #btnAlertaSi {
     color: red;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
