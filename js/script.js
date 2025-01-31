@@ -76,7 +76,19 @@ document.addEventListener("DOMContentLoaded", function() {
     btnEliminar.addEventListener("click", function() {
         mostrarAviso('¿Estás seguro de eliminar?', eliminarGasto);
     });
-    
+
+    document.getElementById('resultadosNotas').addEventListener('click', function(event) {
+        if (event.target && event.target.matches('.btnAñadirNota')) {
+            mostrarAviso('¿Estás seguro de añadir?', añadirNota);
+        }
+        
+        if (event.target && event.target.matches('.btnBorrarNota')) {
+            var dataId = event.target.getAttribute('data-id');
+            mostrarAviso('¿Estás seguro de eliminar?', function() {
+                eliminarNota(dataId);
+            });
+        }
+    });
     containerCanvas.addEventListener('click', (event) => {  // ---- Inserta el data-valor de los botones del CANVAS
         cargarValoresIconos(event);
         cargarColoresIconos(); 
